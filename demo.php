@@ -5,22 +5,27 @@
  * @Author: Yuan
  * @Time: 2023/5/17 09:40
  */
-function __construct()
-{
+namespace yuan9329\tools;
 
-}
 
-function test()
-{
-    return "test is true";
-}
+class demo {
+    public function __construct()
+    {
 
-function testParams($string)
-{
-    return "test output is " . $string;
-}
+    }
 
-function __destruct()
-{
+    public function test()
+    {
+        return "test is true";
+    }
 
+    public function testParams($string)
+    {
+        return "test output is " . $string;
+    }
+
+    public function __destruct()
+    {
+
+    }
 }
