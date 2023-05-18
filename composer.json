@@ -1,7 +1,7 @@
 {
     "name": "yuan9329/tools",
     "description": "Provide various tools",
-    "license": "1.0.1",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Yuan\\Tools\\": "src/"
