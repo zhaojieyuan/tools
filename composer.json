@@ -1,0 +1,17 @@
+{
+    "name": "yuan/tools",
+    "description": "Provide various tools",
+    "license": "1.0.1",
+    "autoload": {
+        "psr-4": {
+            "Yuan\\Tools\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yuan",
+            "email": "phpzhao@qq.com"
+        }
+    ],
+    "require": {}
+}
