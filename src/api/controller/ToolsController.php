@@ -3,23 +3,27 @@
  * Created by PhpStorm.
  * @Message
  * @Author: Yuan
- * @Time: 2023/5/17 09:40
+ * @Time: 2023/5/22 09:30
  */
-namespace yuan9329\tools;
+namespace Tools\api\controller;
 
-
-class demo {
+class ToolsController
+{
     public function __construct()
     {
-
     }
 
-    public function test()
+    public static function newTest()
+    {
+        return "newTest is true";
+    }
+
+    public static function test()
     {
         return "test is true";
     }
 
-    public function testParams($string)
+    public static function testParams($string)
     {
         return "test output is " . $string;
     }
