@@ -19,4 +19,4 @@ function requireDir($dir)
         }
     }
 }
-requireDir(__DIR__ . '/../controller/');
+requireDir(__DIR__ . '/../');
