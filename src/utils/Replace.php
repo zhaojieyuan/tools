@@ -5,6 +5,8 @@
  * @Author: Yuan
  * @Time: 2023/5/25 09:57
  */
+namespace Tools\utils;
+
 class Replace{
 
     /**

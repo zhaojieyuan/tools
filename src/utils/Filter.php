@@ -7,7 +7,7 @@
  */
 namespace Tools\utils;
 
-use Replace;
+use Tools\utils\Replace;
 
 class Filter{
 
