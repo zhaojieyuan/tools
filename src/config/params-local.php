@@ -8,9 +8,9 @@
 
 return [
     "aes_default" => [
-        'iv' => 'jk6cu^u8J3FU&rQH',
-        'salt' => 'z@Ke4Sdfbw4tXjqg',
-        'passphrase' => 'cfXcSjg!SMGnjxcR',
+        'iv' => 'gLmm@zYjRgmMV9#w',
+        'salt' => '^Z&y!U7XHXW@uRve',
+        'passphrase' => '8cr%7fpQY6uEz%5z',
         'iterations' => '999',
     ],
     'filters' => [

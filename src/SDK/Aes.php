@@ -9,9 +9,18 @@ class Aes
     private $passphrase = null;
     private $iterations = null;
 
+    protected static $params = ['iv','salt','passphrase','iterations'];
+
     public function __construct($service)
     {
-        $aes = empty($service) ?? Common::getKeys('aes_default');
+        if($service){
+            foreach (self::$params as $value){
+                if(!isset($service[$value])){
+                    echo "参数异常：" . $value;die;
+                }
+            }
+        }
+        $aes = !empty($service) ? $service : Common::getKeys('aes_default');
         $this->iv = $aes['iv'];
         $this->salt = $aes['salt'];
         $this->passphrase = $aes['passphrase'];
