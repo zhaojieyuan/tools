@@ -32,19 +32,20 @@ class Filter{
      * @param $arr
      * @param $searchKey
      * @param $encryption
+     * @param $aesParams
      * @author:Yuan
      */
-    public static function replaceValue(&$arr, $searchKey,$encryption) {
+    public static function replaceValue(&$arr, $searchKey,$encryption,$aesParams) {
         foreach ($arr as $key => &$value) {
             if (is_array($value)) {
-                self::replaceValue($value, $searchKey,$encryption);
+                self::replaceValue($value, $searchKey,$encryption,$aesParams);
             } else {
                 if(is_array($searchKey)){
                     foreach ($searchKey as $val){
-                        if ($key == $val) $value = Replace::replaceFun($value,$encryption);
+                        if ($key == $val) $value = Replace::replaceFun($value,$encryption,$aesParams);
                     }
                 }else{
-                    if ($key == $searchKey) $value = Replace::replaceFun($value,$encryption);
+                    if ($key == $searchKey) $value = Replace::replaceFun($value,$encryption,$aesParams);
                 }
             }
         }

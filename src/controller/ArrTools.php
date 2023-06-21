@@ -8,11 +8,11 @@
 
 namespace Tools\controller;
 
+use Tools\utils\Common;
 use Tools\utils\Filter;
 
 class ArrTools
 {
-    protected static $filters = ['idcard', 'mobile', 'phone'];
 
     public function __construct()
     {
@@ -21,19 +21,20 @@ class ArrTools
 
     /**
      * @message:信息脱敏
-     * @param $array
-     * @param $replacement
-     * @param $encryption
-     * @param $default
+     * @param array $array 加密数据
+     * @param array $replacement 加密Key
+     * @param string $encryption 加密方式
+     * @param boolean $default 默认自带加密字段
+     * @param array $aesParams 加密信息
      * @return null
      * @author:Yuan
      */
-    public static function desensitize($array,$replacement,$encryption = 'md5',$default = true)
+    public static function desensitize($array,$replacement = [],$encryption = 'md5',$default = true,$aesParams = [])
     {
         if($default){
-            $replacement = array_merge($replacement,self::$filters);
+            $replacement = array_merge($replacement,Common::getKeys('filters')['params']);
         }
-        Filter::replaceValue($array,$replacement,$encryption);
+        Filter::replaceValue($array,$replacement,$encryption,$aesParams);
         return $array;
     }
 

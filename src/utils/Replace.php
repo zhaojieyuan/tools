@@ -7,13 +7,19 @@
  */
 namespace Tools\utils;
 
+use Tools\SDK\Aes;
+
 class Replace{
 
     /**
-     * @message:替换方法
+     * @message:加密/解密
+     * @param $string
+     * @param $encryption
+     * @param $aesParams
+     * @return mixed|string
      * @author:Yuan
      */
-    public static function replaceFun($string,$encryption)
+    public static function replaceFun($string,$encryption,$aesParams = [])
     {
         switch ($encryption){
             case 'md5':
@@ -21,6 +27,13 @@ class Replace{
                 break;
             case 'sha256':
                 $string = self::sha256($string);
+                break;
+            case 'aes':
+            case 'aes-encrypt':
+                $string = self::aesEncrypt($string,$aesParams);
+                break;
+            case 'aes-decrypt':
+                $string = self::aesDecrypt($string,$aesParams);
                 break;
             default:
                 break;
@@ -50,6 +63,32 @@ class Replace{
     public static function sha256($str)
     {
         return hash("sha256", utf8_encode($str));
+    }
+
+    /**
+     * @message:aes-256-cbc encrypt
+     * @param $str
+     * @param $aesParams
+     * @return string
+     * @author:Yuan
+     */
+    public static function aesEncrypt($str,$aesParams)
+    {
+        $aes = new Aes($aesParams);
+        return $aes->cryptoAesEncrypt($str);
+    }
+
+    /**
+     * @message:aes-256-cbc decrypt
+     * @param $str
+     * @param $aesParams
+     * @return string
+     * @author:Yuan
+     */
+    public static function aesDecrypt($str,$aesParams)
+    {
+        $aes = new Aes($aesParams);
+        return $aes->cryptoAesDecrypt($str);
     }
 
     /**
